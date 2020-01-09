@@ -1,0 +1,13 @@
+sudo dnf group install  "Scientific Support"
+sudo dnf group install  "Development Tools"
+sudo dnf group install "System Tools"
+sudo dnf install gcc-toolset-9
+sudo dnf install gcc-toolset-9-\*
+sudo dnf install man-pages
+sudo dnf install man-pages-overrides
+sudo dnf install emacs
+sudo dnf install git
+sudo dnf install wget
+sudo dnf install glibc-utils
+sudo dnf install glibc-devel
+sudo dnf install xorg-x11-xauth
