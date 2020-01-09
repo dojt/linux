@@ -2,9 +2,6 @@
 umask 077
 
 export PATH=$PATH:$HOME/my.local/bin:$HOME/bin
-
-export JULIAROOT=$HOME/my.local/share/julia
-
 export LD_LIBRARY_PATH=$HOME/my.local/lib
 
 
@@ -19,8 +16,12 @@ then
     umask 077
     module add mkl
     umask 077
+
+    export JULIAROOT=/usr/local/share/julia/
+
 elif [[ "$MYHOSTNAME" == "AWS" ]] ;
 then
+    export JULIAROOT=/usr/local/share/julia/
     echo 'Remember to `scl enable gcc-toolset-9 bash`'
 fi
 
