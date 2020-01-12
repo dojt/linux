@@ -1,0 +1,3 @@
+sudo zypper update
+sudo zypper install git
+sudo zypper install emacs
