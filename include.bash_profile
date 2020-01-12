@@ -25,17 +25,19 @@ then
 
     sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0c1ce554.efs.eu-central-1.amazonaws.com:/ /mnt/ketita
 
-    export JULIAROOT=/opt/julia/
-    export PATH=$PATH:$JULIAROOT/bin
-
-    export GCC=gcc-9
-
     if [[ "$MYHOSTNAME" == "AWSr" ]] ;
     then
 	export JULIAROOT=/usr/local/share/julia/
+        export PATH=$PATH:$JULIAROOT/bin
 
         export GCC=gcc
 	echo 'Remember to `scl enable gcc-toolset-9 bash`'
+
+    else
+        export GCC=gcc-9
+        export JULIAROOT=/opt/julia/
+        export PATH=$PATH:$JULIAROOT/bin
+
     fi
 
 else
