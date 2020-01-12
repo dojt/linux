@@ -18,6 +18,7 @@ then
     umask 077
 
     export JULIAROOT=/usr/local/share/julia/
+    export GCC=gcc
 
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
@@ -27,9 +28,13 @@ then
     export JULIAROOT=/opt/julia/
     export PATH=$PATH:$JULIAROOT/bin
 
+    export GCC=gcc-9
+
     if [[ "$MYHOSTNAME" == "AWSr" ]] ;
     then
 	export JULIAROOT=/usr/local/share/julia/
+
+        export GCC=gcc
 	echo 'Remember to `scl enable gcc-toolset-9 bash`'
     fi
 
