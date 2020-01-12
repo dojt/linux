@@ -1,3 +1,10 @@
 sudo zypper update
 sudo zypper install git
 sudo zypper install emacs
+sudo zypper install gcc9
+sudo zypper install gcc9-info
+sudo zypper install gcc-c++
+sudo zypper install gcc9-c++
+sudo zypper install gdb
+sudo zypper install -t pattern devel_basis
+sudo zypper install cmake
