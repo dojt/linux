@@ -8,3 +8,8 @@ sudo zypper install gcc9-c++
 sudo zypper install gdb
 sudo zypper install -t pattern devel_basis
 sudo zypper install cmake
+
+
+sudo zypper addrepo https://download.opensuse.org/repositories/devel:/gcc/openSUSE_Leap_15.1/devel:gcc.repo
+sudo zypper refresh
+sudo zypper install binutils-gold
