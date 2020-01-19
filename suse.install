@@ -13,3 +13,10 @@ sudo zypper install cmake
 sudo zypper addrepo https://download.opensuse.org/repositories/devel:/gcc/openSUSE_Leap_15.1/devel:gcc.repo
 sudo zypper refresh
 sudo zypper install binutils-gold
+sudo zypper install libXt6 libXrender1 libXext6 Mesa-libGL1 libQt5Widgets5
+sudo zypper install libQt5Widgets-devel
+sudo zypper install python-base
+sudo zypper install python-numpy
+sudo zypper install texlive-latex
+sudo zypper install libXft-devel
+sudo zypper install libXt-devel
