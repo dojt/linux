@@ -31,10 +31,12 @@ then
 
     if [[ "$MYHOSTNAME" == "AWSr" ]] ;
     then
-        PATH=$PATH:$JULIAROOT/bin
 
         export GCC=gcc
 	export JULIAROOT=/usr/local/share/julia/
+
+        PATH=$PATH:$JULIAROOT/bin
+
 	echo 'Remember to `scl enable gcc-toolset-9 bash`'
 
     else
@@ -44,6 +46,14 @@ then
         PATH=$PATH:$JULIAROOT/bin
 
     fi
+
+elif [[ $MYHOSTNAME == Acr1 ]] ;
+then
+    PATH=$PATH:/mnt/ketita/sophus/bin
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/sophus/lib
+    export GCC=gcc-9
+    export JULIAROOT=/opt/julia
+    PATH=$PATH:$JULIAROOT/bin
 
 else
     echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
