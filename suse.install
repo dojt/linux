@@ -29,3 +29,4 @@ sudo zypper install gtk2-devel
 # sudo zypper refresh
 # sudo zypper install libglfw-devel
 sudo zypper install gnuplot
+sudo zypper install valgrind
