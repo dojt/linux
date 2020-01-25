@@ -28,3 +28,4 @@ sudo zypper install gtk2-devel
 # sudo zypper addrepo https://download.opensuse.org/repositories/games/SLE_15_SP1/games.repo
 # sudo zypper refresh
 # sudo zypper install libglfw-devel
+sudo zypper install gnuplot
