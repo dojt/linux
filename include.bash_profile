@@ -52,15 +52,26 @@ then
 
     if [[ "$MYHOSTNAME" == "ChrPXL" ]] ;
     then
-        echo Welcome on Shit Pixel! # :-)
+        # Ketita stuff
+        # not needed
+
+        # current GCC
+        # not needed
+
+        # Julia
+        export JULIAROOT=$HOME/my.local/share/julia-1.4.0/
+        PATH=$PATH:$JULIAROOT/bin
 
     else
+        # Ketita stuff
         PATH=$PATH:/mnt/ketita/sophus/bin
         LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/sophus/lib
 
+        # current GCC
         export GCC=gcc
 #        export GCC=gcc-9
 
+        # Julia
 #	export JULIAROOT=/usr/local/share/julia/
         export JULIAROOT=`which julia`/../
         PATH=$PATH:$JULIAROOT/bin
