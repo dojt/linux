@@ -1,6 +1,9 @@
-sudo apt-get install gcc g++
-sudo apt-get install python3-pip
-sudo apt-get install texlive texlive-science
-sudo apt-get install emacs
-sudo apt-get install auctex
-sudo apt-get install texlive-latex-extra
+#!/bin/bash
+sudo apt-get update                                || exit
+sudo apt-get dist-upgrade                          || exit
+sudo apt-get install gcc g++                       || exit
+sudo apt-get install python3-pip                   || exit
+sudo apt-get install texlive texlive-science       || exit
+sudo apt-get install emacs                         || exit
+sudo apt-get install auctex                        || exit
+sudo apt-get install texlive-latex-extra           || exit

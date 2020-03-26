@@ -59,7 +59,7 @@ then
         # not needed
 
         # Julia
-        export JULIAROOT=$HOME/my.local/share/julia-1.4.0/
+        export JULIAROOT=$HOME/my.local/share/julia
         PATH=$PATH:$JULIAROOT/bin
 
     else
