@@ -45,12 +45,12 @@ then
 
     fi
 
-elif [[ $MYHOSTNAME =~ CHR.* ]] ;
+elif [[ $MYHOSTNAME =~ Chr.* ]] ;
 then
 
     # sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0c1ce554.efs.eu-central-1.amazonaws.com:/ /mnt/ketita
 
-    if [[ "$MYHOSTNAME" == "CHRPXL" ]] ;
+    if [[ "$MYHOSTNAME" == "ChrPXL" ]] ;
     then
         echo Welcome on Shit Pixel! # :-)
 
