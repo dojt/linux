@@ -20,3 +20,14 @@ sudo zypper install python-numpy
 sudo zypper install texlive-latex
 sudo zypper install libXft-devel
 sudo zypper install libXt-devel
+sudo zypper install python3-qt5-devel
+sudo zypper install ghostscript-devel
+sudo zypper install libwx*
+sudo zypper install zeromq-devel
+sudo zypper install gtk2-devel
+# sudo zypper addrepo https://download.opensuse.org/repositories/games/SLE_15_SP1/games.repo
+# sudo zypper refresh
+# sudo zypper install libglfw-devel
+sudo zypper install gnuplot
+sudo zypper install valgrind
+sudo zypper install bash-doc

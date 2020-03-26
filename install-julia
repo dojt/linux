@@ -1,0 +1,7 @@
+#!/bin/bash
+cd $HOME                                                                                    || exit
+mkdir -p my.local/{bin,include,lib,share}                                                   || exit
+cd my.local/share/                                                                          || exit
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.4/julia-1.4.0-linux-x86_64.tar.gz   || exit
+tar -xzf julia-1.4.0-linux-x86_64.tar.gz                                                    || exit
+ln -s julia-1.4.0 julia                                                                     || exit
