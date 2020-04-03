@@ -7,3 +7,6 @@ sudo apt-get install texlive texlive-science       || exit
 sudo apt-get install emacs                         || exit
 sudo apt-get install auctex                        || exit
 sudo apt-get install texlive-latex-extra           || exit
+sudo apt-get install cmake
+sudo apt-get install cpio
+sudo apt-get install gdb
