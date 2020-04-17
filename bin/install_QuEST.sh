@@ -16,10 +16,9 @@ cp QuEST/libQuEST.so ../../../lib/              || exit 1
 
 make clean                                      || exit 1
 
-
 cd ../../..                                     || exit 1
 cd include                                      || exit 1
-ln -fs ../share/QuEST/QuEST/include/*.h .       || exit 1
+cp ../share/QuEST/QuEST/include/*.h .           || exit 1
 
 
 
