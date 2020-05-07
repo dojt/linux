@@ -76,11 +76,6 @@ then
         export GCC=gcc
 #        export GCC=gcc-9
 
-        # Julia
-#	export JULIAROOT=/usr/local/share/julia/
-        export JULIAROOT=`which julia`/../
-        PATH=$PATH:$JULIAROOT/bin
-
     else
         echo "Value MYHOSTNAME=$MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
 
