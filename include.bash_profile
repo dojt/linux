@@ -3,6 +3,7 @@ umask 077
 
 export PATH=$PATH:$HOME/my.local/bin:$HOME/bin
 export LD_LIBRARY_PATH=$HOME/my.local/lib
+export JULIAROOT='?'                                # set this below!
 
 
 if [[ "$MYHOSTNAME" == "HPC" ]] ;
@@ -28,23 +29,16 @@ then
 
     PATH=$PATH:/mnt/ketita/sophus/bin
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/sophus/lib
+    JULIAROOT=/mnt/ketita/share/julia/
+    PATH=$PATH:$JULIAROOT/bin
 
-    if [[ "$MYHOSTNAME" == "AWSr" ]] ;
+    if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
 
         export GCC=gcc
-	export JULIAROOT=/usr/local/share/julia/
-
-        PATH=$PATH:$JULIAROOT/bin
-
-	echo 'Remember to `scl enable gcc-toolset-9 bash`'
 
     else
-        export GCC=gcc-9
-        export JULIAROOT=/opt/julia/
-
-        PATH=$PATH:$JULIAROOT/bin
-
+        echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
     fi
 
 elif [[ $MYHOSTNAME =~ Chr.* ]] ;
