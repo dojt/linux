@@ -1,10 +1,9 @@
 # include.bash_profile
 umask 077
 
-export PATH=$PATH:$HOME/my.local/bin:$HOME/bin
+export PATH=$PATH:$HOME/my.local/bin
 export LD_LIBRARY_PATH=$HOME/my.local/lib
 export JULIAROOT='?'                                # set this below!
-
 
 if [[ "$MYHOSTNAME" == "HPC" ]] ;
 then
@@ -35,7 +34,7 @@ then
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
 
-        export GCC=gcc
+        export GCC=gcc9
 
     else
         echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
@@ -72,7 +71,6 @@ then
 
     else
         echo "Value MYHOSTNAME=$MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
-
     fi
 
 
