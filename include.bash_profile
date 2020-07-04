@@ -22,12 +22,14 @@ then
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
 
-    sudo swapon /swapfile
+    if [[ "$USER" == "ec2-user" ]] ;
+    then
+       sudo swapon /swapfile
+       sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0c1ce554.efs.eu-central-1.amazonaws.com:/ /mnt/ketita
+    fi
 
-    sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0c1ce554.efs.eu-central-1.amazonaws.com:/ /mnt/ketita
-
-    PATH=$PATH:/mnt/ketita/sophus/bin
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/sophus/lib
+    PATH=$PATH:/mnt/ketita/bin
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/lib
     JULIAROOT=/mnt/ketita/share/julia/
     PATH=$PATH:$JULIAROOT/bin
 
