@@ -3,7 +3,12 @@ umask 077
 
 export PATH=$PATH:$HOME/my.local/bin
 export LD_LIBRARY_PATH=$HOME/my.local/lib
+
+# Need to export this:
 export JULIAROOT='?'                                # set this below!
+export C_INCLUDES=""                                # -I...
+export C_LIBS=""                                    # -L...
+export GCC="gcc"
 
 if [[ "$MYHOSTNAME" == "HPC" ]] ;
 then
@@ -16,8 +21,10 @@ then
     module add mkl
     umask 077
 
-    export JULIAROOT=/usr/local/share/julia/
-    export GCC=gcc
+    GCC=gcc
+    JULIAROOT=/usr/local/share/julia/
+    C_INCLUDES=-I$HOME/my.local/include
+    C_LIBS=-L$HOME/my.local/lib
 
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
@@ -33,10 +40,13 @@ then
     JULIAROOT=/mnt/ketita/share/julia/
     PATH=$PATH:$JULIAROOT/bin
 
+    C_INCLUDES=-I/mnt/ketita/include
+    C_LIBS=-L/mnt/ketita/lib
+
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
 
-        export GCC=gcc-9
+        GCC=gcc-9
 
     else
         echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
@@ -63,13 +73,10 @@ then
 
         # sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0c1ce554.efs.eu-central-1.amazonaws.com:/ /mnt/ketita
 
-        # Ketita stuff
-        PATH=$PATH:/mnt/ketita/sophus/bin
-        LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/sophus/lib
+        C_INCLUDES=-I$HOME/my.local/include
+        C_LIBS=-L$HOME/my.local/lib
 
-        # current GCC
-        export GCC=gcc
-#        export GCC=gcc-9
+        GCC=gcc
 
     else
         echo "Value MYHOSTNAME=$MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
@@ -79,4 +86,3 @@ then
 else
     echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
 fi
-
