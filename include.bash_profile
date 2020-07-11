@@ -36,7 +36,7 @@ then
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
 
-        export GCC=gcc9
+        export GCC=gcc-9
 
     else
         echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
