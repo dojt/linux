@@ -9,7 +9,7 @@ export JULIAROOT='?'                                # set this below!
 export GCC="gcc"
 export C_INCLUDES=""                                # -I...
 export C_LIBS=""                                    # -L...
-export KETITA_C_ROOT=""                             # path to directory containing `Makefile.defs`
+export C_TOOLS_ROOT=""                              # path to directory containing `Ketita_C/`, `Unity/`, `mkl/`
 
 if [[ "$MYHOSTNAME" == "HPC" ]] ;
 then
@@ -26,7 +26,7 @@ then
     JULIAROOT=/usr/local/share/julia
     C_INCLUDES=-I$HOME/my.local/include
     C_LIBS=-L$HOME/my.local/lib
-    KETITA_C_ROOT=$HOME/my.local/share/Ketita_C
+    C_TOOLS_ROOT=$HOME/my.local/share/
 
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
@@ -44,7 +44,7 @@ then
 
     C_INCLUDES=-I/mnt/ketita/include
     C_LIBS=-L/mnt/ketita/lib
-    KETITA_C_ROOT=/mnt/ketita/include
+    C_TOOLS_ROOT=/mnt/ketita/software/
 
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
@@ -78,7 +78,7 @@ then
 
         C_INCLUDES=-I$HOME/my.local/include
         C_LIBS=-L$HOME/my.local/lib
-        KETITA_C_ROOT=$HOME/my.local/share/Ketita_C
+        C_TOOLS_ROOT=$HOME/my.local/share/
 
         GCC=gcc
 
