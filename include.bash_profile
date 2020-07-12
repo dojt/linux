@@ -6,9 +6,10 @@ export LD_LIBRARY_PATH=$HOME/my.local/lib
 
 # Need to export this:
 export JULIAROOT='?'                                # set this below!
+export GCC="gcc"
 export C_INCLUDES=""                                # -I...
 export C_LIBS=""                                    # -L...
-export GCC="gcc"
+export KETITA_C_ROOT=""                             # path to directory containing `Makefile.defs`
 
 if [[ "$MYHOSTNAME" == "HPC" ]] ;
 then
@@ -22,9 +23,10 @@ then
     umask 077
 
     GCC=gcc
-    JULIAROOT=/usr/local/share/julia/
+    JULIAROOT=/usr/local/share/julia
     C_INCLUDES=-I$HOME/my.local/include
     C_LIBS=-L$HOME/my.local/lib
+    KETITA_C_ROOT=$HOME/my.local/share/Ketita_C
 
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
@@ -42,6 +44,7 @@ then
 
     C_INCLUDES=-I/mnt/ketita/include
     C_LIBS=-L/mnt/ketita/lib
+    KETITA_C_ROOT=/mnt/ketita/include
 
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
@@ -75,6 +78,7 @@ then
 
         C_INCLUDES=-I$HOME/my.local/include
         C_LIBS=-L$HOME/my.local/lib
+        KETITA_C_ROOT=$HOME/my.local/share/Ketita_C
 
         GCC=gcc
 
