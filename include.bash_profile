@@ -26,7 +26,7 @@ then
     JULIAROOT=/usr/local/share/julia
     C_INCLUDES=-I$HOME/my.local/include
     C_LIBS=-L$HOME/my.local/lib
-    C_TOOLS_ROOT=$HOME/my.local/share/
+    C_TOOLS_ROOT=$HOME/my.local/share
 
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
@@ -39,12 +39,12 @@ then
 
     PATH=$PATH:/mnt/ketita/bin
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/ketita/lib
-    JULIAROOT=/mnt/ketita/share/julia/
+    JULIAROOT=/mnt/ketita/share/julia
     PATH=$PATH:$JULIAROOT/bin
 
     C_INCLUDES=-I/mnt/ketita/include
     C_LIBS=-L/mnt/ketita/lib
-    C_TOOLS_ROOT=/mnt/ketita/software/
+    C_TOOLS_ROOT=/mnt/ketita/software
 
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
@@ -78,7 +78,7 @@ then
 
         C_INCLUDES=-I$HOME/my.local/include
         C_LIBS=-L$HOME/my.local/lib
-        C_TOOLS_ROOT=$HOME/my.local/share/
+        C_TOOLS_ROOT=$HOME/my.local/share
 
         GCC=gcc
 
