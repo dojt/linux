@@ -24,9 +24,9 @@ then
 
     GCC=gcc
     JULIAROOT=/usr/local/share/julia
-    C_INCLUDES=-I$HOME/my.local/include
     C_LIBS=-L$HOME/my.local/lib
     C_TOOLS_ROOT=$HOME/my.local/share
+    C_INCLUDES=-I$HOME/my.local/include
 
 elif [[ $MYHOSTNAME =~ AWS.* ]] ;
 then
@@ -42,14 +42,14 @@ then
     JULIAROOT=/mnt/ketita/share/julia
     PATH=$PATH:$JULIAROOT/bin
 
-    C_INCLUDES=-I/mnt/ketita/include
-    C_LIBS=-L/mnt/ketita/lib
+    C_INCLUDES="-I/mnt/ketita/include"
+    C_LIBS="-L/mnt/ketita/lib"
     C_TOOLS_ROOT=/mnt/ketita/software
 
     if [[ "$MYHOSTNAME" == "AWSu" ]] ;
     then
 
-        GCC=gcc-9
+        GCC=gcc-new
 
     else
         echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
@@ -90,3 +90,34 @@ then
 else
     echo "Value of MYHOSTNAME not recognized.  SETUP INCOMPLETE!!"
 fi
+
+#
+# Write  .emacs-local  file
+#
+truncate -s 0 ~/.emacs-local
+
+echo "(custom-set-variables" >> ~/.emacs-local
+
+# Flycheck
+cat >> ~/.emacs-local <<EOF
+'(flycheck-gcc-include-path
+  (list
+EOF
+for d in $C_INCLUDES ;
+do
+    if [[ "$d" =~ -I.* ]] ;
+    then
+        echo '"'` echo $d | cut -c 3- `'"' >> ~/.emacs-local
+    else
+        echo "Entry $d in C_INCLUDES has wrong format"
+    fi
+done
+cat >> ~/.emacs-local <<EOF
+    (expand-file-name "~/my.local/include")
+))
+EOF
+
+cat >> ~/.emacs-local <<EOF
+  '(flycheck-c/c++-gcc-executable "$GCC")
+EOF
+echo ")" >> ~/.emacs-local  # end of `custom-set-variables`
